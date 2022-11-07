@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
 repositories {
@@ -8,4 +9,40 @@ repositories {
 
 dependencies {
     testImplementation 'junit:junit:4.13.2'
+}
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+group = 'cc.regolo'
+version = '0.1.0'
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId = 'cc.regolo'
+            artifactId = 'jfib'
+            version = '0.1.0'
+
+            artifacts = [jar, javadocJar, sourcesJar]
+
+            pom {
+                name = 'jfib'
+                description = 'sample fibonacci java lib'
+                url = 'https://github.com/cristiangreco/jfib'
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'OSSRH'
+            url = 'https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/'
+
+            credentials {
+                username = System.getenv("OSSRH_USERNAME")
+                password = System.getenv("OSSRH_PASSWORD")
+            }
+        }
+    }
 }
