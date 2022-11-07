@@ -19,15 +19,12 @@ java {
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
-group = 'cc.regolo'
-version = '0.1.0'
-
 publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = 'cc.regolo'
             artifactId = 'jfib'
-            version = '0.1.0'
+            version = project.properties['jfib_version']
 
             artifacts = [jar, javadocJar, sourcesJar]
 
