@@ -34,6 +34,13 @@ publishing {
                 description = 'sample fibonacci java lib'
                 url = 'https://github.com/cristiangreco/jfib'
 
+                licenses {
+                    license {
+                        name = 'MIT'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+
                 scm {
                     connection = 'scm:git:git://github.com/cristiangreco/jfib.git'
                     developerConnection = 'scm:git:ssh://github.com/cristiangreco/jfib.git'
